@@ -1,0 +1,76 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2021-03-22T20:48:02Z"
+  labels:
+    run: testing
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:run: {}
+      f:spec:
+        f:containers:
+          k:{"name":"test8"}:
+            .: {}
+            f:image: {}
+            f:imagePullPolicy: {}
+            f:name: {}
+            f:resources: {}
+            f:terminationMessagePath: {}
+            f:terminationMessagePolicy: {}
+        f:dnsPolicy: {}
+        f:enableServiceLinks: {}
+        f:restartPolicy: {}
+        f:schedulerName: {}
+        f:securityContext: {}
+        f:terminationGracePeriodSeconds: {}
+    manager: kubectl-run
+    operation: Update
+    time: "2021-03-22T20:48:02Z"
+  name: testing
+  namespace: default
+  resourceVersion: "2144511"
+  uid: 5ed66a48-b2df-4396-bcf8-59960acae1a6
+spec:
+  containers:
+          - image: vimal13/apache-webserver-php
+    imagePullPolicy: Always
+    name: testing
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-mk26x
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: default-token-mk26x
+    secret:
+      defaultMode: 420
+      secretName: default-token-mk26x
+status:
+  phase: Pending
+  qosClass: BestEffort
